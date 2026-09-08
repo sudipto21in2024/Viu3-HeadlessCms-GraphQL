@@ -1,0 +1,344 @@
+@import './reset.css';
+
+/* ==========================================================================
+   MAISON AURA — LUXURY EDITORIAL DESIGN SYSTEM
+   ========================================================================== */
+
+:root {
+  /* Editorial Color Tokens — Light (Alabaster / Ivory) */
+  --bg-primary: #FAF8F5;
+  --bg-secondary: #F3EFE9;
+  --bg-tertiary: #E8E2D8;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --bg-glass: rgba(250, 248, 245, 0.82);
+
+  --text-primary: #121214;
+  --text-secondary: #58575E;
+  --text-muted: #8E8D94;
+  --text-inverse: #FAF8F5;
+
+  --accent-gold: #C5A880;
+  --accent-gold-hover: #AF926B;
+  --accent-gold-light: rgba(197, 168, 128, 0.15);
+  --accent-bronze: #8E704E;
+
+  --border-subtle: rgba(18, 18, 20, 0.08);
+  --border-medium: rgba(18, 18, 20, 0.16);
+  --border-gold: rgba(197, 168, 128, 0.4);
+
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.12);
+  --shadow-gold: 0 12px 30px rgba(197, 168, 128, 0.25);
+
+  /* Typography Scale */
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Layout & Transitions */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-medium: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+  --container-max: 1440px;
+}
+
+/* Dark Theme (Obsidian / Night Runway) */
+body.theme-obsidian {
+  --bg-primary: #0C0C0E;
+  --bg-secondary: #141418;
+  --bg-tertiary: #1C1C22;
+  --bg-card: rgba(20, 20, 24, 0.75);
+  --bg-card-hover: rgba(28, 28, 34, 0.9);
+  --bg-glass: rgba(12, 12, 14, 0.82);
+
+  --text-primary: #FAF8F5;
+  --text-secondary: #AAA9B0;
+  --text-muted: #6E6D75;
+  --text-inverse: #121214;
+
+  --accent-gold: #D6B992;
+  --accent-gold-hover: #E8CCA5;
+  --accent-gold-light: rgba(214, 185, 146, 0.15);
+  --accent-bronze: #B29168;
+
+  --border-subtle: rgba(250, 248, 245, 0.09);
+  --border-medium: rgba(250, 248, 245, 0.18);
+  --border-gold: rgba(214, 185, 146, 0.35);
+
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.7);
+  --shadow-gold: 0 12px 35px rgba(214, 185, 146, 0.2);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-medium), color var(--transition-medium);
+}
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+
+h1, h2, h3, h4, .font-serif, .editorial-heading {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.heading-display {
+  font-size: clamp(2.5rem, 5.5vw, 5.2rem);
+  line-height: 1.05;
+  font-style: italic;
+}
+
+.heading-xl {
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  line-height: 1.15;
+}
+
+.heading-lg {
+  font-size: clamp(1.5rem, 2.2vw, 2.2rem);
+  line-height: 1.25;
+}
+
+.heading-md {
+  font-size: 1.35rem;
+  line-height: 1.35;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.meta-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   CONTAINERS & LAYOUT
+   ========================================================================== */
+
+.page-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .page-container {
+    padding: 0 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .page-container {
+    padding: 0 4rem;
+  }
+}
+
+.section-spacing {
+  padding: 5rem 0;
+}
+
+@media (min-width: 992px) {
+  .section-spacing {
+    padding: 8rem 0;
+  }
+}
+
+/* ==========================================================================
+   GLASSMORPHISM & SURFACES
+   ========================================================================== */
+
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+}
+
+.card-luxury {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-medium);
+  overflow: hidden;
+}
+
+.card-luxury:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-medium);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  border: 1px solid var(--text-primary);
+}
+
+.btn-primary:hover {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #121214;
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-gold {
+  background: var(--accent-gold);
+  color: #121214;
+  border: 1px solid var(--accent-gold);
+}
+
+.btn-gold:hover {
+  background: var(--accent-gold-hover);
+  border-color: var(--accent-gold-hover);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  background: var(--accent-gold-light);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border: none;
+  padding: 0.5rem 0.75rem;
+}
+
+.btn-ghost:hover {
+  color: var(--accent-gold);
+}
+
+/* ==========================================================================
+   HOTSPOT MARKERS
+   ========================================================================== */
+
+.hotspot-pin {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.hotspot-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--accent-gold);
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  position: relative;
+  z-index: 2;
+  transition: transform var(--transition-fast);
+}
+
+.hotspot-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent-gold);
+  animation: hotspot-pulse 2.2s infinite ease-out;
+}
+
+@keyframes hotspot-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.hotspot-pin:hover .hotspot-dot {
+  transform: scale(1.4);
+  background-color: #FFFFFF;
+}
+
+/* ==========================================================================
+   SKELETON LOADERS
+   ========================================================================== */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-secondary) 25%,
+    var(--bg-tertiary) 50%,
+    var(--bg-secondary) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite ease-in-out;
+  border-radius: var(--radius-xs);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
